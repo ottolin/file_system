@@ -41,7 +41,7 @@ defmodule FileSystem.Backends.FSInotify do
   end
 
   def known_events do
-    [:created, :deleted, :closed, :modified, :isdir, :attribute, :undefined]
+    [:created, :moved_to, :deleted, :closed, :modified, :isdir, :attribute, :undefined]
   end
 
   defp executable_path do
@@ -157,7 +157,7 @@ defmodule FileSystem.Backends.FSInotify do
   end
 
   defp convert_flag("CREATE"),      do: :created
-  defp convert_flag("MOVED_TO"),    do: :created
+  defp convert_flag("MOVED_TO"),    do: :moved_to
   defp convert_flag("DELETE"),      do: :deleted
   defp convert_flag("MOVED_FROM"),  do: :deleted
   defp convert_flag("ISDIR"),       do: :isdir

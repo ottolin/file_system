@@ -42,7 +42,7 @@ defmodule FileSystem.Backends.FSInotifyTest do
     end
 
     test "dir moved to" do
-      assert {"/one/two/file", [:created]} ==
+      assert {"/one/two/file", [:moved_to]} ==
         ~w|/one/two/ MOVED_TO file| |> to_port_line |> parse_line
     end
 
